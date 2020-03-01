@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Caustics
+  m_Shader: {fileID: 4800000, guid: 403e086db8fc30d4781f20e07ca6527c, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _Brightness: 1
+    - _Contrast: 1
+    - _JellyX: 10
+    - _JellyXB: 0.1
+    - _JellyXBs: 1
+    - _JellyXs: 0.2
+    - _JellyY: 0.1
+    - _JellyYB: 15
+    - _JellyYBs: 0.4
+    - _JellyYs: 1
+    - _Saturation: 1
+    m_Colors:
+    - _Color: {r: 0.71677494, g: 0.678, b: 1, a: 0.09019608}
