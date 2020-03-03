@@ -2,11 +2,13 @@
 // #NVJOB Simple Boids. MIT license - license_nvjob.txt
 // #NVJOB Nicholas Veselov - https://nvjob.github.io
 // #NVJOB Simple Boids v1.1.1 - https://nvjob.github.io/unity/nvjob-boids
-// You can become one of the patrons, or make a sponsorship donation - https://nvjob.github.io/patrons
 
 
 using System.Collections;
 using UnityEngine;
+
+[HelpURL("https://nvjob.github.io/unity/nvjob-boids")]
+[AddComponentMenu("#NVJOB/Boids/Simple Boids")]
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,14 +51,21 @@ public class NVBoids : MonoBehaviour
     public float dangerSoaring = 0.5f;
     public LayerMask dangerLayer;
 
-    //--------------
+    [Header("Information")] // These variables are only information.
+    public string HelpURL = "nvjob.github.io/unity/nvjob-boids";
+    public string ReportAProblem = "nvjob.github.io/support";
+    public string Patrons = "nvjob.github.io/patrons";
 
-    Transform thisTransform;
+    //-------------- 
+
+    Transform thisTransform, dangerTransform;
+    int dangerBird;
     Transform[] birdsTransform, flocksTransform;
     Vector3[] rdTargetPos, flockPos, velFlocks;
     float[] birdsSpeed, birdsSpeedCur, spVelocity;
     int[] curentFlock;
     float dangerSpeedCh, dangerSoaringCh;
+    static WaitForSeconds delay0;
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,6 +79,7 @@ public class NVBoids : MonoBehaviour
         CreateFlock();
         CreateBird();
         StartCoroutine(BehavioralChange());
+        StartCoroutine(Danger());
 
         //--------------
     }
@@ -84,7 +94,6 @@ public class NVBoids : MonoBehaviour
 
         FlocksMove();
         BirdsMove();
-        Danger();
 
         //--------------
     }
@@ -137,28 +146,31 @@ public class NVBoids : MonoBehaviour
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    void Danger()
+    IEnumerator Danger()
     {
-        //--------------  
+        //--------------
 
         if (danger == true)
         {
-            if (Physics.CheckSphere(flocksTransform[0].position, dangerRadius, dangerLayer))
+            delay0 = new WaitForSeconds(1.0f);
+
+            while (true)
             {
-                if (dangerSpeedCh != dangerSpeed) dangerSpeedCh = dangerSpeed;
-                if (dangerSoaringCh != 0.5f) dangerSoaringCh = dangerSoaring;
-            }
-            else
-            {
-                if (dangerSpeedCh != 1) dangerSpeedCh = 1;
-                if (dangerSoaringCh != 1) dangerSoaringCh = 1;
+                if (Random.value > 0.9f) dangerBird = Random.Range(0, birdsNum);
+                dangerTransform.localPosition = birdsTransform[dangerBird].localPosition;
+
+                if (Physics.CheckSphere(dangerTransform.position, dangerRadius, dangerLayer))
+                {
+                    dangerSpeedCh = dangerSpeed;
+                    dangerSoaringCh = dangerSoaring;
+                    yield return null;
+                }
+                else dangerSpeedCh = dangerSoaringCh = 1;
+
+                yield return delay0;
             }
         }
-        else
-        {
-            if (dangerSpeedCh != 1) dangerSpeedCh = 1;
-            if (dangerSoaringCh != 1) dangerSoaringCh = 1;
-        }
+        else dangerSpeedCh = dangerSoaringCh = 1;
 
         //--------------
     }
@@ -194,7 +206,7 @@ public class NVBoids : MonoBehaviour
                 Vector3 lpv = Random.insideUnitSphere * fragmentedBirds;
                 rdTargetPos[b] = new Vector3(lpv.x, lpv.y * fragmentedBirdsYLimit, lpv.z);
                 if (Random.value < migrationFrequency) curentFlock[b] = Random.Range(0, flockNum);
-            }
+            } 
         }
 
         //--------------
@@ -216,18 +228,23 @@ public class NVBoids : MonoBehaviour
         for (int f = 0; f < flockNum; f++)
         {
             GameObject nobj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            nobj.SetActive(debug);              
-            if (f == 0 && danger == true) // For a flock hunter
-            {
-                nobj.layer = gameObject.layer;
-                nobj.GetComponent<MeshRenderer>().enabled = debug;
-                nobj.SetActive(true);
-            }
+            nobj.SetActive(debug);
             flocksTransform[f] = nobj.transform;
             Vector3 rdvf = Random.onUnitSphere * fragmentedFlock;
             flocksTransform[f].position = thisTransform.position;
             flockPos[f] = new Vector3(rdvf.x, Mathf.Abs(rdvf.y * fragmentedFlockYLimit), rdvf.z);
             flocksTransform[f].parent = thisTransform;
+        }
+
+        //-------------- // For Danger and for flock hunter
+
+        if (danger == true)
+        {
+            GameObject dobj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            dobj.GetComponent<MeshRenderer>().enabled = debug;
+            dobj.layer = gameObject.layer;
+            dangerTransform = dobj.transform;
+            dangerTransform.parent = thisTransform;
         }
 
         //--------------

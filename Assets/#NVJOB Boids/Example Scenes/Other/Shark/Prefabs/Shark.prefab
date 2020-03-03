@@ -111,6 +111,6 @@ MonoBehaviour:
     m_Bits: 1073741824
   speed: 5
   walkZone: 100
-  huntingZone: 50
+  huntingZone: 85
   sharkMaterial: {fileID: 2100000, guid: 3bfe11c511ffb984da89fea8e2997ab1, type: 2}
   debug: 1

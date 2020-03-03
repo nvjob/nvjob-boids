@@ -2,7 +2,6 @@
 // #NVJOB FPS counter and graph - simple and fast. MIT license - license_nvjob.txt
 // #NVJOB FPS counter and graph - simple and fast V1.2.5 - https://nvjob.github.io/unity/nvjob-fps-counter-and-graph
 // #NVJOB Nicholas Veselov (independent developer) - https://nvjob.github.io
-// You can become one of the patrons, or make a sponsorship donation - https://nvjob.github.io/patrons
 
 
 using UnityEngine;
@@ -10,6 +9,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
+
+[HelpURL("https://nvjob.github.io/unity/nvjob-fps-counter-and-graph")]
+[AddComponentMenu("#NVJOB/Tools/FPS Counter and Graph")]
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,22 +23,30 @@ public class FPSCounter : MonoBehaviour
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    public Text counterText;
-    public Transform graph;
+    [Header("Counter Settings")]
     public int frameUpdate = 60;
     public int highestPossibleFPS = 300;
+
+    [Header("Graph Settings")]
     public float graphUpdate = 1.0f;
     public Color graphColor = new Color(1, 1, 1, 0.5f);
 
-    //---------------------------------
+    [Header("Information")] // These variables are only information.
+    public string HelpURL = "nvjob.github.io/unity/nvjob-fps-counter-and-graph";
+    public string ReportAProblem = "nvjob.github.io/support";
+    public string Patrons = "nvjob.github.io/patrons";
 
+    //--------------
+
+    GameObject counter, graph;
+    Transform graphTr;
+    Text counterText;
     float ofsetX;
     int curCount, lineCount;
 
-    //---------------------------------
+    //--------------
 
     static WaitForSeconds stGraphUpdate;
-    static Transform stTr;
     static GameObject[] stLines;
     static int stNumLines;
 
@@ -46,12 +56,11 @@ public class FPSCounter : MonoBehaviour
 
     void Awake()
     {
-        //---------------------------------
+        //--------------
 
-        stGraphUpdate = new WaitForSeconds(graphUpdate);
-        FillLinePool();
+        CreateCounter();
 
-        //---------------------------------
+        //--------------
     }
 
 
@@ -60,11 +69,11 @@ public class FPSCounter : MonoBehaviour
 
     void OnEnable()
     {
-        //---------------------------------
+        //--------------
 
         StartCoroutine(DrawGraph());
 
-        //---------------------------------
+        //--------------
     }
 
 
@@ -73,7 +82,7 @@ public class FPSCounter : MonoBehaviour
 
     void Update()
     {
-        //---------------------------------
+        //--------------
 
         // StFPS.Counter().x - min fps
         // StFPS.Counter().y - avg fps
@@ -83,7 +92,15 @@ public class FPSCounter : MonoBehaviour
         curCount = allFps.y;
         counterText.text = "MIN " + allFps.x.ToString() + " | AVG " + allFps.y.ToString() + " | MAX " + allFps.z.ToString();
 
-        //---------------------------------
+        //-------------- 
+
+        if (Input.GetKeyDown(KeyCode.F1)) // Hide Counter
+        {
+            counter.SetActive(!counter.activeSelf);
+            graph.SetActive(!graph.activeSelf);
+        }
+
+        //--------------
     }
 
 
@@ -92,7 +109,7 @@ public class FPSCounter : MonoBehaviour
 
     IEnumerator DrawGraph()
     {
-        //---------------------------------
+        //--------------
 
         while (true)
         {
@@ -109,24 +126,31 @@ public class FPSCounter : MonoBehaviour
 
             if (lineCount++ > 49)
             {
-                foreach (Transform child in graph) child.gameObject.SetActive(false);
+                foreach (Transform child in graphTr) child.gameObject.SetActive(false);
                 ofsetX = lineCount = 0;
             }
             else ofsetX += 0.02f;
         }
 
-        //---------------------------------
+        //--------------
     }
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
 
-    void FillLinePool()
+
+    void CreateCounter()
     {
-        //---------------------------------
+        //--------------
 
-        stTr = graph;
+        stGraphUpdate = new WaitForSeconds(graphUpdate);
+
+        counter = transform.Find("Counter").gameObject;
+        counterText = counter.GetComponent<Text>();
+
+        graphTr = transform.Find("Graph");
+        graph = graphTr.gameObject;        
+
         stNumLines = 100;
         stLines = new GameObject[stNumLines];
 
@@ -135,13 +159,13 @@ public class FPSCounter : MonoBehaviour
             stLines[i] = new GameObject();
             stLines[i].SetActive(false);
             stLines[i].name = "Line_" + i;
-            stLines[i].transform.parent = stTr;
+            stLines[i].transform.parent = graphTr;
             Image img = stLines[i].AddComponent<Image>();
             img.rectTransform.localScale = Vector3.one;
             img.color = graphColor;
         }
 
-        //---------------------------------
+        //--------------
     }
 
 
@@ -150,12 +174,12 @@ public class FPSCounter : MonoBehaviour
 
     static GameObject GiveLine()
     {
-        //---------------------------------
+        //--------------
 
         for (int i = 0; i < stNumLines; i++) if (!stLines[i].activeSelf) return stLines[i];
         return null;
 
-        //---------------------------------
+        //--------------
     }
 
 
@@ -182,7 +206,7 @@ public static class StFPS
 
     public static Vector3Int Counter(int frameUpdate, float deltaTime)
     {
-        //---------------------------------
+        //--------------
 
         int fpsBCount = fpsBuffer.Count;
 
@@ -201,7 +225,7 @@ public static class StFPS
         if (Time.timeScale == 1 && fps.y > 0 ) return fps;
         else return Vector3Int.zero;
 
-        //---------------------------------
+        //--------------
     }
 
 

@@ -2,11 +2,13 @@
 // #NVJOB Simple Boids. MIT license - license_nvjob.txt
 // #NVJOB Nicholas Veselov - https://nvjob.github.io
 // #NVJOB Simple Boids v1.1.1 - https://nvjob.github.io/unity/nvjob-boids
-// You can become one of the patrons, or make a sponsorship donation - https://nvjob.github.io/patrons
 
 
 using System.Collections;
 using UnityEngine;
+
+[HelpURL("https://nvjob.github.io/unity/nvjob-boids")]
+[AddComponentMenu("#NVJOB/Boids/Shark")]
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,13 +20,16 @@ public class Shark : MonoBehaviour
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    public GameObject camRig0, camRig1;
-    public LayerMask layerFlock;
+    [Header("General Settings")]
     public float speed = 5;
     public float walkZone = 100;
-    public float huntingZone = 50;
-    public Material sharkMaterial;
+    public GameObject camRig0, camRig1;
     public bool debug;
+
+    [Header("Hunting Settings")]
+    public float huntingZone = 50;
+    public LayerMask layerFlock;
+    public Material sharkMaterial;
 
     //--------------
 
@@ -90,7 +95,7 @@ public class Shark : MonoBehaviour
         }
         else
         {
-            if (huntTime < 5.0f) huntTime += Time.deltaTime;
+            if (huntTime < 4.0f) huntTime += Time.deltaTime * 0.5f;
             else hunting = false;
             Collider[] flockColliders = Physics.OverlapSphere(thisTransform.position, huntingZone, layerFlock);
             if (flockColliders.Length > 0) targetFlock = flockColliders[0].transform.position;
