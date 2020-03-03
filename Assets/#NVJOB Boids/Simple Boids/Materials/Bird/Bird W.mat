@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 55ce03abd2543af4e8d3de832af67e67, type: 3}
+        m_Texture: {fileID: 2800000, guid: 455660fcdc0c9e24ab37aa233275085a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -77,7 +77,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BiasNormal: 1
-    - _Brightness: 2
+    - _Brightness: 1
     - _BumpMapDUV: 1
     - _BumpScale: 1
     - _Contrast: 1
@@ -86,8 +86,14 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FillWithRed: 0
+    - _FlappXCenter: 0.1
+    - _FlappXOffset: 0.4
+    - _FlappXPower: 0.05
+    - _FlappYOffset: 2
+    - _FlappYPower: 1.1
+    - _FlappZPower: 0
     - _FlappingPower: 1
-    - _FlappingSpeed: 10
+    - _FlappingSpeed: 8
     - _FlappingX: 0.4
     - _FlappingY: 2
     - _FlappingYPosition: 0.1
@@ -97,7 +103,7 @@ Material:
     - _IndentCenterX: 0.3
     - _IndentCenterXZ: 20
     - _IntensityNm: 3
-    - _IntensityNmD: 1
+    - _IntensityNmD: 2
     - _IntensityOc: 1
     - _IntensityRef: 0.5
     - _Metallic: 0
@@ -107,10 +113,10 @@ Material:
     - _Parallax: 0.02
     - _Saturation: 1
     - _SaturationRef: 0.8
-    - _Shininess: 0.1
+    - _Shininess: 0.06
     - _SmoothnessTextureChannel: 0
     - _SpecMapDInts: 1
-    - _SpecMapInts: 0.4
+    - _SpecMapInts: 0.5
     - _SpecMapUV: 1
     - _SpecMapUVD: 1
     - _SpecularHighlights: 1
@@ -124,11 +130,11 @@ Material:
     - _TreeWindPower: 1
     - _TreeWindYPosition: 30
     - _UVSec: 0
-    - _WaveY: 0
-    - _WaveYSpeed: 0
+    - _WaveY: 2
+    - _WaveYSpeed: 0.15
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.852, g: 0.8629629, b: 1, a: 1}
+    - _Color: {r: 0.40506667, g: 0.41066664, b: 0.47599998, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 0.937, g: 0.9459477, b: 1, a: 1}
-    - _SpecColor: {r: 0.32900003, g: 0.32900003, b: 0.32900003, a: 1}
+    - _SpecColor: {r: 0.084, g: 0.084, b: 0.084, a: 1}

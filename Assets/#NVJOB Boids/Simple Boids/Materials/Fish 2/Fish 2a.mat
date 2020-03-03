@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cube:
-        m_Texture: {fileID: 8900000, guid: b2edd3146a154b04f920f368b991d659, type: 3}
+        m_Texture: {fileID: 8900000, guid: 72647da1b4a73a5489e9b0c086133c19, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -85,7 +85,7 @@ Material:
     - _BumpMapDUV: 1
     - _BumpScale: 1
     - _Contrast: 1.2
-    - _ContrastRef: 1.2
+    - _ContrastRef: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -102,7 +102,7 @@ Material:
     - _IntensityNm: 0.1
     - _IntensityNmD: 1
     - _IntensityOc: 1
-    - _IntensityRef: 0.7
+    - _IntensityRef: 2.5
     - _MainTexDUV: 1
     - _Metallic: 0
     - _Mode: 0
@@ -112,7 +112,7 @@ Material:
     - _Saturation: 0
     - _SaturationRef: 0
     - _ScriptControl: 0
-    - _Shininess: 0.1
+    - _Shininess: 0.05
     - _SmoothnessTextureChannel: 0
     - _SpecMapDInts: 1
     - _SpecMapInts: 1
@@ -120,9 +120,9 @@ Material:
     - _SpecMapUVD: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _SwimmingPower: 0.5
-    - _SwimmingScale: 1
-    - _SwimmingSpeed: 6
+    - _SwimmingPower: 0.7
+    - _SwimmingScale: 2
+    - _SwimmingSpeed: 5
     - _SwimmingX: 0.1
     - _SwimmingY: 0.1
     - _TailWagging: 5.6
@@ -135,13 +135,13 @@ Material:
     - _TreeWindPower: 1
     - _TreeWindYPosition: 30
     - _UVSec: 0
-    - _WaveBody: 0.3
-    - _WaveY: 0.5
-    - _WaveYSpeed: 0.5
-    - _Wobble: 0.5
+    - _WaveBody: -0.5
+    - _WaveY: 0.6
+    - _WaveYSpeed: 0.6
+    - _Wobble: 0.9
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 0.832, g: 0.8350628, b: 1, a: 1}
-    - _SpecColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+    - _SpecColor: {r: 0.03, g: 0.03, b: 0.03, a: 1}

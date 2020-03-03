@@ -157,15 +157,15 @@ MonoBehaviour:
   fragmentedFlockYLimit: 0.02
   migrationFrequency: 0.06
   posChangeFrequency: 0.4
-  smoothChFrequency: 15
+  smoothChFrequency: 25
   birdPref: {fileID: 7623336724680058607, guid: 47f66454a37f6ba4797d1f0ca0095942,
     type: 3}
   birdsNum: 1500
   birdSpeed: 1
-  fragmentedBirds: 25
-  fragmentedBirdsYLimit: 0.9
-  soaring: 0.5
-  verticalWawe: 20
+  fragmentedBirds: 22
+  fragmentedBirdsYLimit: 0.85
+  soaring: 0.6
+  verticalWawe: 15
   rotationClamp: 0
   rotationClampValue: 50
   scaleRandom: {x: 1, y: 1.5}
@@ -187,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177128448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 40.9, z: 0}
+  m_LocalPosition: {x: 0, y: 24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1562,15 +1562,15 @@ MonoBehaviour:
   fragmentedFlock: 900
   fragmentedFlockYLimit: 0.01
   migrationFrequency: 0.05
-  posChangeFrequency: 0.3
-  smoothChFrequency: 20
+  posChangeFrequency: 0.35
+  smoothChFrequency: 15
   birdPref: {fileID: 1534700291726900181, guid: d9e5ebbbbe4e59a4791eee801255a76a,
     type: 3}
   birdsNum: 1500
   birdSpeed: 0.6
   fragmentedBirds: 25
-  fragmentedBirdsYLimit: 0.1
-  soaring: 0.5
+  fragmentedBirdsYLimit: 0.15
+  soaring: 0.8
   verticalWawe: 7
   rotationClamp: 0
   rotationClampValue: 50
@@ -1593,7 +1593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887782150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -89.6, z: 0}
+  m_LocalPosition: {x: 0, y: -80, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -498,14 +498,14 @@ PrefabInstance:
       propertyPath: highestPossibleFPS
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 1102302625, guid: fc243675728653a4093f82ccb2e59921, type: 3}
+      propertyPath: m_Color.a
+      value: 0.101960786
+      objectReference: {fileID: 0}
     - target: {fileID: 786967401283974173, guid: fc243675728653a4093f82ccb2e59921,
         type: 3}
       propertyPath: m_Color.a
       value: 0.34901962
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102302625, guid: fc243675728653a4093f82ccb2e59921, type: 3}
-      propertyPath: m_Color.a
-      value: 0.101960786
       objectReference: {fileID: 0}
     - target: {fileID: 950114048, guid: fc243675728653a4093f82ccb2e59921, type: 3}
       propertyPath: m_Color.a

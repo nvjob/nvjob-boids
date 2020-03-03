@@ -82,6 +82,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FillWithRed: 1
+    - _FlappXCenter: 0.2
+    - _FlappXOffset: -0.1
+    - _FlappXPower: 1.2
+    - _FlappYOffset: 3
+    - _FlappYPower: 5
+    - _FlappZPower: -0.1
     - _FlappingPower: 4
     - _FlappingSpeed: 12
     - _FlappingX: 0.01
@@ -107,7 +113,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaveY: 2
+    - _WaveY: 1
     - _WaveYSpeed: 0.75
     - _ZWrite: 1
     m_Colors:

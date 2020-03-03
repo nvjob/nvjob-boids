@@ -49,10 +49,13 @@ _SaturationRef("Saturation Reflection", Range(0, 5)) = 1
 _ContrastRef("Contrast Reflection", Range(0, 5)) = 1
 _BiasNormal("Bias Normal", Range(-5, 5)) = 1
 [Header(Bird Flapping)][Space(5)]
-_FlappingPower("Flapping Power", Range(0, 50)) = 10
 _FlappingSpeed("Flapping Speed", Range(0, 50)) = 10
-_FlappingY("Flapping Y", Range(-15, 15)) = 0.1
-_FlappingX("Flapping X", Range(-15, 15)) = 0.1
+_FlappYPower("Flapping Y Power", Range(0, 50)) = 2
+_FlappYOffset("Flapping Y Offset", Range(-15, 15)) = 0.1
+_FlappXPower("Flapping X Power", Range(0, 50)) = 1
+_FlappXOffset("Flapping X Offset", Range(-15, 15)) = 0.1
+_FlappXCenter("Flapping X Center Indent", Range(0, 15)) = 0.1
+_FlappZPower("Flapping Z Power", Range(-10, 10)) = 0.1
 _WaveY("Wave Y", Range(0, 30)) = 0
 _WaveYSpeed("Wave Y Speed", Range(0, 30)) = 1
 [Toggle(BUTTERFLY)]
@@ -86,7 +89,7 @@ sampler2D _MainTex, _BumpMap, _BumpMapD, _SpecMap, _OcclusionMap, _EmissionTex;
 fixed4 _Color, _ReflectColor;
 half _Shininess, _BiasNormal, _IntensityNm, _OcclusionMapUv, _IntensityOc, _IntensityRef, _Saturation, _Contrast, _Brightness, _BumpMapDUV, _IntensityNmD, _SaturationRef, _ContrastRef, _SpecMapInts, _SpecMapUV;
 samplerCUBE _Cube;
-half _FlappingPower, _FlappingSpeed, _FlappingY, _FlappingX, _WaveY, _WaveYSpeed;
+half _FlappingSpeed, _FlappYPower, _FlappYOffset, _FlappXPower, _FlappXOffset, _FlappXCenter, _FlappZPower, _WaveY, _WaveYSpeed;
 
 //----------------------------------------------
 
@@ -115,20 +118,23 @@ UNITY_VERTEX_INPUT_INSTANCE_ID
 void vert(inout appdata v) {
 UNITY_SETUP_INSTANCE_ID(v);
 float3 wp = mul(unity_ObjectToWorld, half4(1, 1, 1, 1)).xyz;
-half yf = v.vertex.y + _FlappingY;
-half xf = abs(v.vertex.x) + _FlappingX;
+half yf = v.vertex.y + _FlappYOffset;
+half xf = abs(v.vertex.x) + _FlappXOffset;
 float timeY = _Time.y;
-half cosT;
+half tmul;
 #ifdef BUTTERFLY
 xf = xf * 0.5;
-cosT = cos((timeY + sin(wp.y * 0.2)) * _FlappingSpeed);
+tmul = 0.2;
 #else
 xf = xf * xf * xf;
-cosT = cos((timeY + sin(wp.y * 0.5)) * _FlappingSpeed);
+tmul = 0.5;
 #endif
-float flap = yf * xf * cosT;
-v.vertex.y += sin(v.vertex.y / 5) * flap * _FlappingPower;
-if (_WaveY > 0) v.vertex.y += sin((timeY + cos((wp.x + wp.z) * _WaveY * 0.1)) * _WaveYSpeed) * _WaveY;
+float flap = sin(v.vertex.y / 5) * yf * xf * cos((timeY + sin(wp.y * tmul)) * _FlappingSpeed);
+v.vertex.y += flap * _FlappYPower;
+if (v.vertex.x > _FlappXCenter) v.vertex.x -= flap * _FlappXPower * v.vertex.x;
+else if (v.vertex.x < -_FlappXCenter) v.vertex.x -= flap * _FlappXPower * v.vertex.x;
+v.vertex.z += flap * _FlappZPower;
+if (_WaveY > 0) v.vertex.y += sin((timeY + (cos((wp.x + wp.z) * _WaveY * 0.1) * 3)) * _WaveYSpeed) * _WaveY;
 }
 
 //----------------------------------------------

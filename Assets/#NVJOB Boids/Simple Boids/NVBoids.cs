@@ -163,7 +163,7 @@ public class NVBoids : MonoBehaviour
                 {
                     dangerSpeedCh = dangerSpeed;
                     dangerSoaringCh = dangerSoaring;
-                    yield return null;
+                    yield return delay0;
                 }
                 else dangerSpeedCh = dangerSoaringCh = 1;
 
