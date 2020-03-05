@@ -65,6 +65,7 @@ public class NVBoids : MonoBehaviour
     float[] birdsSpeed, birdsSpeedCur, spVelocity;
     int[] curentFlock;
     float dangerSpeedCh, dangerSoaringCh;
+    float timeTime;
     static WaitForSeconds delay0;
 
 
@@ -123,8 +124,9 @@ public class NVBoids : MonoBehaviour
         //--------------
 
         float deltaTime = Time.deltaTime;
+        timeTime += deltaTime;
         Vector3 translateCur = Vector3.forward * birdSpeed * dangerSpeedCh * deltaTime;
-        Vector3 verticalWaweCur = Vector3.up * ((verticalWawe * 0.5f) - Mathf.PingPong(Time.time * 0.5f, verticalWawe));
+        Vector3 verticalWaweCur = Vector3.up * ((verticalWawe * 0.5f) - Mathf.PingPong(timeTime * 0.5f, verticalWawe));
         float soaringCur = soaring * dangerSoaring * deltaTime;
 
         //--------------
