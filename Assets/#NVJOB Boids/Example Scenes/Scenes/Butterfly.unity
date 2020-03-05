@@ -1276,14 +1276,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2043210046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 127ab551036cca74fb0369a4373a5b23, type: 3}
+  m_Script: {fileID: 11500000, guid: 723f86eb74237a04cb24cb210a1e99b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeedX: 0.2
-  rotLengthX: 20
-  rotSpeedY: 1
-  rotSpeedZ: -0.3
-  rotLengthZ: 50
+  rotationSpeed: 80
+  mouseVerticaleClamp: {x: -10, y: 30}
+  smoothMouse: 0.8
+  liftOn: 1
+  liftClamp: {x: -2, y: 20}
+  smoothLift: 0.7
+  camTransform: {fileID: 585125319}
+  camClamp: {x: -25, y: 20}
+  smoothCam: 1
 --- !u!4 &2043210048
 Transform:
   m_ObjectHideFlags: 0

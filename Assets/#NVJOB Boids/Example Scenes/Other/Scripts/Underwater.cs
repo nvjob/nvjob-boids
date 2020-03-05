@@ -1,29 +1,25 @@
 ﻿using UnityEngine;
 
-[AddComponentMenu("#NVJOB/Tools/Rotation")]
+[AddComponentMenu("#NVJOB/Tools/Underwater")]
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-public class Rotation : MonoBehaviour
+public class Underwater : MonoBehaviour
 {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
 
-
-    public float rotSpeedX = 0.5f;
-    public float rotLengthX = 40;
-    [Space(10)]
-    public float rotSpeedY = 2.5f;
-    [Space(10)]
-    public float rotSpeedZ = -0.4f;
-    public float rotLengthZ = 80;
+    public float waterLevel = -27;
+    public GameObject underwater;
+    public Renderer horizenDown;
+    public Material horizenDownMat1, horizenDownMat2;
 
     //--------------
 
-    Transform tr;
-    Vector3 rotationStart;
+    Transform thisTransform;
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -33,11 +29,13 @@ public class Rotation : MonoBehaviour
     {
         //--------------
 
-        tr = transform;
-        rotationStart = tr.eulerAngles;
+        thisTransform = transform;
+        underwater.SetActive(false);
+        horizenDown.material = horizenDownMat1;
 
         //--------------
     }
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -46,13 +44,22 @@ public class Rotation : MonoBehaviour
     {
         //--------------
 
-        float timeTime = Time.time;
-
-        float rtx = rotationStart.x + (((rotLengthX * 0.5f) - Mathf.PingPong(timeTime, rotLengthX)) * rotSpeedX);
-        float rty = rotationStart.y + (rotSpeedY * timeTime);
-        float rtz = rotationStart.z + (((rotLengthZ * 0.5f) - Mathf.PingPong(timeTime, rotLengthZ)) * rotSpeedZ);
-
-        tr.rotation = Quaternion.Euler(new Vector3(rtx, rty, rtz));
+        if (thisTransform.position.y < waterLevel)
+        {
+            if (!underwater.activeSelf)
+            {
+                underwater.SetActive(true);
+                horizenDown.material = horizenDownMat2;
+            }
+        }
+        else
+        {
+            if (underwater.activeSelf)
+            {
+                underwater.SetActive(false);
+                horizenDown.material = horizenDownMat1;
+            }
+        }
 
         //--------------
     }

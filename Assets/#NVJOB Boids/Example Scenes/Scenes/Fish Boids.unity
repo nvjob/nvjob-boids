@@ -1505,14 +1505,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2043210046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 127ab551036cca74fb0369a4373a5b23, type: 3}
+  m_Script: {fileID: 11500000, guid: 723f86eb74237a04cb24cb210a1e99b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeedX: 0.5
-  rotLengthX: 40
-  rotSpeedY: 2.5
-  rotSpeedZ: -0.4
-  rotLengthZ: 80
+  rotationSpeed: 50
+  mouseVerticaleClamp: {x: -12, y: 17}
+  smoothMouse: 0.8
+  liftOn: 1
+  liftClamp: {x: -1, y: 1}
+  smoothLift: 1
+  camTransform: {fileID: 585125319}
+  camClamp: {x: -20, y: 40}
+  smoothCam: 2
 --- !u!4 &2043210048
 Transform:
   m_ObjectHideFlags: 0
@@ -1594,7 +1598,7 @@ PrefabInstance:
     - target: {fileID: 7461267099246308886, guid: 68c5b749a9aa2f9428a406881fc6d481,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 7461267099246308886, guid: 68c5b749a9aa2f9428a406881fc6d481,
         type: 3}
@@ -1663,7 +1667,7 @@ PrefabInstance:
     - target: {fileID: 3016175424401316370, guid: 00a8346fcb0e22442b8bad5f0dcf0048,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 3016175424401316370, guid: 00a8346fcb0e22442b8bad5f0dcf0048,
         type: 3}

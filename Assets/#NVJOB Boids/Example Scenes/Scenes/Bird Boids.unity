@@ -302,7 +302,7 @@ MonoBehaviour:
   behavioralCh: {x: 3, y: 7}
   debug: 0
   flockNum: 8
-  fragmentedFlock: 700
+  fragmentedFlock: 800
   fragmentedFlockYLimit: 0.2
   migrationFrequency: 0.02
   posChangeFrequency: 0.4
@@ -314,7 +314,7 @@ MonoBehaviour:
   fragmentedBirds: 20
   fragmentedBirdsYLimit: 0.9
   soaring: 0.45
-  verticalWawe: 20
+  verticalWawe: 15
   rotationClamp: 0
   rotationClampValue: 50
   scaleRandom: {x: 1, y: 1.5}
@@ -336,7 +336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526481502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 110, z: 0}
+  m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1337,14 +1337,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2043210046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 127ab551036cca74fb0369a4373a5b23, type: 3}
+  m_Script: {fileID: 11500000, guid: 723f86eb74237a04cb24cb210a1e99b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeedX: 0.5
-  rotLengthX: 40
-  rotSpeedY: 2.5
-  rotSpeedZ: -0.4
-  rotLengthZ: 80
+  rotationSpeed: 100
+  mouseVerticaleClamp: {x: -10, y: 30}
+  smoothMouse: 0.8
+  liftOn: 1
+  liftClamp: {x: -5, y: 25}
+  smoothLift: 0.5
+  camTransform: {fileID: 585125319}
+  camClamp: {x: -25, y: 50}
+  smoothCam: 1
 --- !u!4 &2043210048
 Transform:
   m_ObjectHideFlags: 0
@@ -1371,11 +1375,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dynamic Sky
-      objectReference: {fileID: 0}
-    - target: {fileID: 5603979247659807322, guid: 8a12c745772ba924e85f705bd8ba1b74,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5603979247659807325, guid: 8a12c745772ba924e85f705bd8ba1b74,
         type: 3}

@@ -104,13 +104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb5effcc1704b94cae9b5eee849171b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camRig0: {fileID: 0}
-  camRig1: {fileID: 0}
+  speed: 5
+  walkZone: 100
+  camRig: {fileID: 0}
+  debug: 1
+  huntingZone: 85
   layerFlock:
     serializedVersion: 2
     m_Bits: 1073741824
-  speed: 5
-  walkZone: 100
-  huntingZone: 85
   sharkMaterial: {fileID: 2100000, guid: 3bfe11c511ffb984da89fea8e2997ab1, type: 2}
-  debug: 1

@@ -146,7 +146,9 @@ public class FPSCounter : MonoBehaviour
         stGraphUpdate = new WaitForSeconds(graphUpdate);
 
         counter = transform.Find("Counter").gameObject;
-        counterText = counter.GetComponent<Text>();
+        counterText = transform.Find("Counter/CounterText").gameObject.GetComponent<Text>();
+        transform.Find("Counter/MaxFPSText").gameObject.GetComponent<Text>().text = highestPossibleFPS.ToString();
+        transform.Find("Counter/HalfFPSText").gameObject.GetComponent<Text>().text = Mathf.Round(highestPossibleFPS * 0.5f).ToString();
 
         graphTr = transform.Find("Graph");
         graph = graphTr.gameObject;        

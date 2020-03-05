@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 5603979247659807325}
   - component: {fileID: 5603979247659807324}
   m_Layer: 0
-  m_Name: Dynamic Sky Type 2
+  m_Name: Dynamic Sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +96,9 @@ MonoBehaviour:
   ssgUvRotateSpeed: 0.65
   ssgUvRotateDistance: 0.2
   player: {fileID: 0}
+  HelpURL: nvjob.github.io/unity/nvjob-dynamic-sky-lite
+  ReportAProblem: nvjob.github.io/support
+  Patrons: nvjob.github.io/patrons
 --- !u!1 &5603979247842547971
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +126,7 @@ Transform:
   m_GameObject: {fileID: 5603979247842547971}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1176, y: 980, z: 1176}
+  m_LocalScale: {x: 2600, y: 980, z: 2600}
   m_Children: []
   m_Father: {fileID: 5603979247659807325}
   m_RootOrder: 1

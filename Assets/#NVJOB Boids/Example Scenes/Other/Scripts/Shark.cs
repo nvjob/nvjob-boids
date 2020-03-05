@@ -23,7 +23,7 @@ public class Shark : MonoBehaviour
     [Header("General Settings")]
     public float speed = 5;
     public float walkZone = 100;
-    public GameObject camRig0, camRig1;
+    public Transform camRig;
     public bool debug;
 
     [Header("Hunting Settings")]
@@ -33,7 +33,7 @@ public class Shark : MonoBehaviour
 
     //--------------
 
-    Transform thisTransform, camRigTr0, camRigTr1;
+    Transform thisTransform;
     Vector3 vel, velCam, target, targetCurent, targetRandom, targetFlock;
     float startYpos, huntTime, huntSpeed, speedSh, acselSh;
     bool hunting;
@@ -47,15 +47,10 @@ public class Shark : MonoBehaviour
     {
         //--------------
 
-        thisTransform = transform;
-        camRigTr0 = camRig0.transform;
-        camRigTr1 = camRig1.transform;        
+        thisTransform = transform; 
 
         startYpos = transform.position.y;
-        huntSpeed = 1.0f; 
-
-        camRig0.SetActive(true);
-        camRig1.SetActive(false);        
+        huntSpeed = 1.0f;
 
         StartCoroutine(RandomVector());
 
@@ -71,7 +66,7 @@ public class Shark : MonoBehaviour
 
         Hunting();
         Move();
-        CamerasRig();
+        CameraRig();
         DebugPath();
 
         //--------------
@@ -134,22 +129,11 @@ public class Shark : MonoBehaviour
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    void CamerasRig()
+    void CameraRig()
     {
         //--------------
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            camRig0.SetActive(!camRig0.activeSelf);
-            camRig1.SetActive(!camRig1.activeSelf);
-        }
-
-        if (camRig0.activeSelf) camRigTr0.position = thisTransform.position;
-        else
-        {
-            camRigTr1.position = thisTransform.position;
-            camRigTr1.rotation = Quaternion.Lerp(camRigTr1.rotation, thisTransform.rotation, Time.deltaTime * 0.4f);
-        }
+        camRig.position = thisTransform.position;
 
         //--------------
     }

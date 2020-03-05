@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 179434425}
   - component: {fileID: 179434424}
   m_Layer: 0
-  m_Name: Horizen
+  m_Name: Horizen Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012743294137297339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1319, y: 356, z: 0}
+  m_LocalPosition: {x: -1319, y: 500, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8540643452672053079}
@@ -251,6 +251,9 @@ MonoBehaviour:
   ssgUvRotateSpeed: 0.65
   ssgUvRotateDistance: 0.2
   player: {fileID: 0}
+  HelpURL: nvjob.github.io/unity/nvjob-dynamic-sky-lite
+  ReportAProblem: nvjob.github.io/support
+  Patrons: nvjob.github.io/patrons
 --- !u!1 &8540643453053090090
 GameObject:
   m_ObjectHideFlags: 0
