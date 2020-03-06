@@ -304,14 +304,14 @@ MonoBehaviour:
   flockNum: 8
   fragmentedFlock: 800
   fragmentedFlockYLimit: 0.2
-  migrationFrequency: 0.02
-  posChangeFrequency: 0.4
-  smoothChFrequency: 18
+  migrationFrequency: 0.015
+  posChangeFrequency: 0.2
+  smoothChFrequency: 20
   birdPref: {fileID: 7623336724680058607, guid: 2f5f5731eb36efb4ead612880acc102e,
     type: 3}
   birdsNum: 2000
   birdSpeed: 1
-  fragmentedBirds: 20
+  fragmentedBirds: 23
   fragmentedBirdsYLimit: 0.9
   soaring: 0.45
   verticalWawe: 15
