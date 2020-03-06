@@ -95,8 +95,8 @@ public class Shark : MonoBehaviour
             Collider[] flockColliders = Physics.OverlapSphere(thisTransform.position, huntingZone, layerFlock);
             if (flockColliders.Length > 0) targetFlock = flockColliders[0].transform.position;
             targetCurent = targetFlock;
-            if (huntSpeed < 2.0f) huntSpeed += Time.deltaTime * 0.2f;
-            if (acselSh < 0.5f) acselSh += Time.deltaTime * 0.1f;
+            if (huntSpeed < 2.1f) huntSpeed += Time.deltaTime * 0.2f;
+            if (acselSh < 0.6f) acselSh += Time.deltaTime * 0.1f;
         }
 
         if (acselSh >= 0)
