@@ -8,8 +8,21 @@ This technology is not real Boids, it's pseudo Boids (not mathematical model), b
 
 -------------------------------------------------------------------
 
+### Prerequisites
+
+To work on the project, you will need a Unity version of at least 2019.1.8 (64-bit).
+
+### Information
+
 Animation of birds, fish and butterflies implemented using shaders. The asset includes two shaders, one for birds and butterflies, the second for fish.
 
+<strong>I recommend</strong> importing this asset into a new project. Study the operation of the asset and copy the components you need to your project.
+
+There are five examples in the asset, for understanding the operation and settings.<br>
+Asset already includes several models (three fish models, one bird model and one butterfly model).
+In fact, you can use any model, see the example "Fish Boids Danger", the shark is animated using a shader.
+
+#NVJOB Simple Boids allows you to create many flocks and many objects in flocks, and it is all controlled by one script. I got good performance by calculating all the flocks in one script, but nevertheless, if you plan to use tens of thousands of birds, this will certainly affect the performance decrease.
 
 <strong>Features:</strong><br>
 - One script for all flocking.<br>
@@ -19,16 +32,6 @@ Animation of birds, fish and butterflies implemented using shaders. The asset in
 - Customization for different types of flocks.<br>
 - Reaction of flocks to danger.<br>
 - Animation implemented using a shader.
-<br><br>
-<strong>I recommend</strong> importing this asset into a new project. Study the operation of the asset and copy the components you need to your project.
-<br><br>
-There are five examples in the asset, for understanding the operation and settings.
-<br>
-Asset already includes several models (three fish models, one bird model and one butterfly model).
-In fact, you can use any model, see the example "Fish Boids Danger", the shark is animated using a shader.
-<br><br>
-#NVJOB Simple Boids allows you to create many flocks and many objects in flocks, and it is all controlled by one script. I got good performance by calculating all the flocks in one script, but nevertheless, if you plan to use tens of thousands of birds, this will certainly affect the performance decrease.
-
 
 -------------------------------------------------------------------
 
