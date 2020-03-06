@@ -1,5 +1,5 @@
 # #NVJOB Simple Boids (Flocks of Birds, Fish and Insects) 1.1.1
-#### [nvjob.github.io/unity/nvjob-boids](https://nvjob.github.io/unity/nvjob-boids)
+#### Full instructions - [nvjob.github.io/unity/nvjob-boids](https://nvjob.github.io/unity/nvjob-boids)
 
 ![GitHub Logo](https://nvjob.github.io/repo/unity%20assets/nvjob%20boids/scr/Bird%20Boids%203.jpg)
 
