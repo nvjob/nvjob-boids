@@ -1,6 +1,5 @@
 # #NVJOB Simple Boids (Flocks of Birds, Fish and Insects) 1.1.1
 #### Full instructions - [nvjob.github.io/unity/nvjob-boids](https://nvjob.github.io/unity/nvjob-boids)
-#### Download Techno Demo (Windows, Linux) - [nvjob.itch.io/nvjob-simple-boids-td](https://nvjob.itch.io/nvjob-simple-boids-td)
 
 ![GitHub Logo](https://nvjob.github.io/repo/unity%20assets/nvjob%20boids/scr/Bird%20Boids%203.jpg)
 
@@ -33,6 +32,8 @@ In fact, you can use any model, see the example "Fish Boids Danger", the shark i
 - Customization for different types of flocks.<br>
 - Reaction of flocks to danger.<br>
 - Animation implemented using a shader.
+
+Download Techno Demo (Windows, Linux) - [nvjob.itch.io/nvjob-simple-boids-td](https://nvjob.itch.io/nvjob-simple-boids-td)
 
 -------------------------------------------------------------------
 
