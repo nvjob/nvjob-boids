@@ -1,7 +1,7 @@
 # #NVJOB Simple Boids (Flocks of Birds, Fish and Insects) 1.1.1
 #### Full instructions - [nvjob.github.io/unity/nvjob-boids](https://nvjob.github.io/unity/nvjob-boids)
 
-![GitHub Logo](https://nvjob.github.io/repo/unity%20assets/nvjob%20boids/scr/Bird%20Boids%203.jpg)
+![GitHub Logo](https://nvjob.github.io/repo/unity%20assets/nvjob%20boids/scr/Fish%20Boids%20Danger%204.jpg)
 
 #NVJOB Simple Boids is a simulation of the behavior of flocks of birds and fish.<br>
 This technology is not real Boids, it's pseudo Boids (not mathematical model), but the basic Boids rules (separation, alignment, cohesion) are followed.
