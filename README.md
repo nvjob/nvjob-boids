@@ -44,6 +44,6 @@ Download Techno Demo (Windows, Linux) - [nvjob.itch.io/nvjob-simple-boids-td](ht
 
 **Authors:** [#NVJOB Nicholas Veselov Developer. Разработчик Николай Веселов. Санкт-Петербург.](https://nvjob.github.io)
 
-**License:** MIT License. [Clarification of licenses](https://nvjob.github.io/mit-license)
+**License:** MIT License. [Clarification of licenses](https://nvjob.github.io/mit-license).
 
-**Support:** [nvjob.github.io/reportaproblem](https://nvjob.github.io/reportaproblem/)
+**Support:** [Report a Problem](https://nvjob.github.io/reportaproblem/).
