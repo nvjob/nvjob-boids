@@ -41,4 +41,5 @@ Download Techno Demo (Windows, Linux) - [nvjob.itch.io/nvjob-simple-boids-td](ht
 
 **License:** MIT License. [Clarification of licenses](https://nvjob.github.io/mit-license).
 
-**Sorry:** This project is currently frozen and cannot be supported or updated due to its complete non-profitability.
+**🖤 Donate:** <br>
+[paypal.me/nvjob](https://paypal.me/nvjob)
